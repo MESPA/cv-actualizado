@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel España - Full Stack Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+        .skills-badge {
+            margin: 0.2rem;
+        }
+    </style>
+    <script>
+        const translations = {
+            es: {
+                about: "Sobre Mí",
+                experience: "Experiencia Profesional",
+                education: "Educación",
+                contact: "Contacto",
+                hero: {
+                    title: "Manuel España",
+                    subtitle: "Desarrollador Web Full-Stack",
+                    location: "Santo Domingo, Distrito Nacional, República Dominicana",
+                    skills: ["C#", ".NET", "ASP.NET Core", "React", "React Native", "Selenium", "Cypress", "QA Automation"],
+                    contactButton: "Contacto"
+                },
+                aboutDescription1: "Desarrollador Full-Stack con más de 8 años de experiencia en desarrollo web y automatización de pruebas.",
+                aboutDescription2: "Siempre en busca de nuevos desafíos y oportunidades para aplicar mis habilidades técnicas y contribuir al éxito de proyectos innovadores.",
+                skillsTitle: "Habilidades Principales",
+                skill1: "Desarrollo Full-Stack con .NET Core y React",
+                skill2: "Automatización de pruebas con Selenium y Cypress",
+                skill3: "Diseño e implementación de APIs RESTful",
+                skill4: "Desarrollo de aplicaciones móviles con React Native",
+                skill5: "Gestión de bases de datos SQL",
+                experience1Title: "QA Automation Engineer / Full-Stack Web Developer",
+                experience1Date: "Nov 2022 - Feb 2025",
+                experience1Company: "Concentra/Innovix - Full-time (Remoto)",
+                experience1Description: "Desarrollo de soluciones full-stack y automatización de pruebas de software.",
+                experience1Skill1: "Automated Software Testing",
+                experience1Skill2: "Software Quality",
+                experience2Title: "QA Tester",
+                experience2Date: "Abr 2024 - Ene 2025",
+                experience2Company: "Prosoft Costa Rica - Contrato (Remoto)",
+                experience2Description: "Garantía de calidad en aplicaciones de software.",
+                experience2Skill1: "Test Assurance",
+                experience2Skill2: "Software Quality",
+                education1Title: "Universidad Rómulo Gallegos (Unerg) - Venezuela",
+                education1Date: "2008 - 2013",
+                education1Degree: "Ingeniería Informática",
+                contactMessage1: "Estoy abierto a nuevas oportunidades como Full Stack Engineer.",
+                contactMessage2: "¡No dudes en contactarme!",
+                linkedin: "LinkedIn",
+                email: "Email"
+            },
+            en: {
+                about: "About Me",
+                experience: "Professional Experience",
+                education: "Education",
+                contact: "Contact",
+                hero: {
+                    title: "Manuel España",
+                    subtitle: "Full-Stack Web Developer",
+                    location: "Santo Domingo, Distrito Nacional, Dominican Republic",
+                    skills: ["C#", ".NET", "ASP.NET Core", "React", "React Native", "Selenium", "Cypress", "QA Automation"],
+                    contactButton: "Contact"
+                },
+                aboutDescription1: "Full-Stack Developer with over 8 years of experience in web development and test automation.",
+                aboutDescription2: "Always seeking new challenges and opportunities to apply my technical skills and contribute to the success of innovative projects.",
+                skillsTitle: "Key Skills",
+                skill1: "Full-Stack Development with .NET Core and React",
+                skill2: "Test Automation with Selenium and Cypress",
+                skill3: "Design and Implementation of RESTful APIs",
+                skill4: "Mobile Application Development with React Native",
+                skill5: "SQL Database Management",
+                experience1Title: "QA Automation Engineer / Full-Stack Web Developer",
+                experience1Date: "Nov 2022 - Mar 2025",
+                experience1Company: "Concentra/Innovix - Full-time (Remote)",
+                experience1Description: "Development of full-stack solutions and software test automation.",
+                experience1Skill1: "Automated Software Testing",
+                experience1Skill2: "Software Quality",
+                experience2Title: "QA Tester",
+                experience2Date: "Apr 2024 - Jan 2025",
+                experience2Company: "Prosoft Costa Rica - Contract (Remote)",
+                experience2Description: "Quality assurance in software applications.",
+                experience2Skill1: "Test Assurance",
+                experience2Skill2: "Software Quality",
+                education1Title: "Universidad Rómulo Gallegos (Unerg) - Venezuela",
+                education1Date: "2008 - 2013",
+                education1Degree: "Computer Engineering",
+                contactMessage1: "I am open to new opportunities as a Full Stack Engineer.",
+                contactMessage2: "Feel free to contact me!",
+                linkedin: "LinkedIn",
+                email: "Email"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll("[data-translate]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-translate");
+                const translation = translations[lang][key] || translations[lang].hero[key];
+                if (Array.isArray(translation)) {
+                    el.innerHTML = translation.map(skill => `<span class='badge bg-light text-dark skills-badge'>${skill}</span>`).join(' ');
+                } else {
+                    el.textContent = translation;
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const langSelector = document.getElementById("language-selector");
+            langSelector.addEventListener("change", (e) => setLanguage(e.target.value));
+            setLanguage("es"); // Default language
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container text-end py-3">
+            <select id="language-selector" class="form-select w-auto">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </header>
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 data-translate="title"></h1>
+            <h2 data-translate="subtitle"></h2>
+            <p class="lead" data-translate="skills"></p>
+            <p data-translate="location"></p>
+            <a href="#contact" class="btn btn-outline-light btn-lg mt-4" data-translate="contactButton"></a>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-translate="about"></h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="lead" data-translate="aboutDescription1"></p>
+                    <p data-translate="aboutDescription2"></p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" data-translate="skillsTitle"></h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" data-translate="skill1"></li>
+                                <li class="list-group-item" data-translate="skill2"></li>
+                                <li class="list-group-item" data-translate="skill3"></li>
+                                <li class="list-group-item" data-translate="skill4"></li>
+                                <li class="list-group-item" data-translate="skill5"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-translate="experience"></h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title" data-translate="experience1Title"></h4>
+                        <span class="text-muted" data-translate="experience1Date"></span>
+                    </div>
+                    <h5 class="card-subtitle mb-2 text-muted" data-translate="experience1Company"></h5>
+                    <p class="card-text" data-translate="experience1Description"></p>
+                    <span class="badge bg-primary" data-translate="experience1Skill1"></span>
+                    <span class="badge bg-primary" data-translate="experience1Skill2"></span>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title" data-translate="experience2Title"></h4>
+                        <span class="text-muted" data-translate="experience2Date"></span>
+                    </div>
+                    <h5 class="card-subtitle mb-2 text-muted" data-translate="experience2Company"></h5>
+                    <p class="card-text" data-translate="experience2Description"></p>
+                    <span class="badge bg-primary" data-translate="experience2Skill1"></span>
+                    <span class="badge bg-primary" data-translate="experience2Skill2"></span>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">Training Software Implementation</h4>
+                        <span class="text-muted">Year: 2023</span>
+                    </div>
+                    <p class="card-text">I created and implemented training software for administrative and operational staff to register staff data and schedule training activities in order to have the staff trained and updated, optimizing the operation of the company by 100%.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">ERP-SAP Integration</h4>
+                        <span class="text-muted">Year: 2022</span>
+                    </div>
+                    <p class="card-text">Integrated an ERP SAP to a sales software for the registration and control of the sales and insurance area. Optimized the flow control in sales and collection of the company's services by 90%.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">Complementary Database for Ministry</h4>
+                        <span class="text-muted">Year: 2021</span>
+                    </div>
+                    <p class="card-text">Created and implemented a complementary database for the Ministry of Public Administration of the Dominican Republic for the storage of data and information in software for the collection of data from the payroll of the State. Improved the functioning of the registry and control of the financial resources of the Dominican State by 100%.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">Data Warehouse for Banco Vimenca</h4>
+                        <span class="text-muted">Year: 2020</span>
+                    </div>
+                    <p class="card-text">Created and implemented a data warehouse for Banco Vimenca for the control, registration, and analysis of information from the management area of the Bank. Improved the capture, recruitment, and debugging of potential clients for the area of Data Credits and financing by 100%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-translate="education"></h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title" data-translate="education1Title"></h4>
+                        <span class="text-muted" data-translate="education1Date"></span>
+                    </div>
+                    <h5 class="card-subtitle mb-2 text-muted" data-translate="education1Degree"></h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-translate="contact"></h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p data-translate="contactMessage1"></p>
+                            <p data-translate="contactMessage2"></p>
+                            <div class="mt-4">
+                                <a href="https://www.linkedin.com/in/manuel-espana-071399157/" class="btn btn-outline-primary me-2">
+                                    <i class="bi bi-linkedin"></i> <span data-translate="linkedin"></span>
+                                </a>
+                                <a href="mailto:manuel030888@gmail.com" class="btn btn-outline-secondary me-2">
+                                    <i class="bi bi-envelope"></i> <span data-translate="email"></span>
+                                </a>
+                                <a href="https://github.com/manuel-espana" class="btn btn-outline-dark">
+                                    <i class="bi bi-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
